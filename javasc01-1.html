@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>java1-1</title>
+
+    <script>
+        // //는 한줄 주석코드
+        // /* */ 여러줄 주석코드
+        
+        // 자바스크립트 결과를 화면에 출력하기
+        // 1. innerHTML: html태그 내용을 수정하여 화면에 출력 -사용빈도 높
+            // 기존의 화면을 꾸미기 위하여 사용한 html태그 내용을 수정하기 위해 사용
+            // 웹브라우저 화면에서 확인 가능
+        // 2. document.write(): web화면에 text로 직접 출력 -사용빈도 낮
+            // 기존 화면(html, css)이 모두 로딩된 이후 사용 시 기존의 모든 html내용이 삭제됨
+            // 웹브라우저 화면에서 확인 가능
+        // 3. alert(): 알림창을 화면에 띄워서 출력 -사용빈도 높
+            // 기존의 html태그와는 상관 없이 동작하고 알림창을 이용해 사용자에게 출력
+            // 알림창을 사용하기 때문에 디버그용도로도 많이 사용
+            // 웹브라우저 화면에서 확인 가능
+        // 4. console.log(): 웹 브라우저의 console창에 출력 -사용빈도 높
+            // 일반 사용자의 화면에는 내용 출력x, 개발자모드 console창에서만 확인이 가능해서 디버그용
+            // 웹브라우저 화면에서 확인 불가
+    </script>
+</head>
+<body>
+    <h2>innerHTML</h2>
+    <p id="innerHTML"></p>
+    <script>
+        document.querySelector("#innerHTML").innerHTML = 5 + 10;
+    </script>
+    <hr>
+
+    <h2>document.write()</h2>
+    <button onclick="document.write('기존내용 삭제 후 출력')">클릭 시 기존html내용 삭제 후 화면에 출력</button>
+    <script>
+        document.write(5+10);
+    </script>
+    <hr>
+
+    <h2>alert()</h2>
+    <button onclick="alert(5+10);">클릭 시 alert()</button>
+    <hr>
+
+    <h2>console.log()</h2>
+    <script>
+        console.log(5+10);
+    </script>
+</body>
+</html>

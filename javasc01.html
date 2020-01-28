@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>java 1일</title>
+
+    <!-- 자바스크립트: web의 기본 프로그래밍 언어(스크립트 언어) -->
+    <!-- html을 실시간으로 생성, 수정 삭제할 수 있음 -->
+    <!-- css를 실시간으로 생성, 수정, 삭제 및 적용할 수 있음 -->
+    <!-- web의 이벤트를 이용하여 동적인 web페이지를 만들 수 있음 -->
+    
+    <!-- 자바스크립트 사용법 -->
+    <!-- 1. inline방식: html태그에 직접 자바스크립트 코드 입력-->
+    <!-- 2. 현재 web페이지에 <script></script>태그 사용 후 자바스크립트 코드 입력 -->
+        <!-- 주로 <head></head>태그 내에 사용 - 자주씀 -->
+        <script>
+            alert("head태그 입력한 자바스크립트");
+        </script>
+        <!-- <body></body>태그 내에 <script></script>사용 후 코드 입력해도 상관 x - 잘안씀 -->
+            <!-- body태그 내 사용 시 body태그 아무곳에 사용 가능 but 가장 아래에 입력하는 것이 좋음 -->
+    <!-- 3. 외부 자바스크립트 파일 로드 -->
+        <!-- <script src="파일경로"></script>형태로 사용 -가장 많이 씀-->
+        <!-- 디자인영역과 프로그래밍 영역을 분리해서 관리할 수 있음 -->
+        <!-- 하나의 파일로 여러개의 html파일에서 사용이 가능함(재활용) -->
+        <!-- 외부 파일방식은 외부 서버에 존재하는 자바스크립트 파일을 로드할 수 있음 -->
+        <script src="./javasc01.js"></script>
+    <!-- 자바스크립트도 html처럼 위에서 아래로 한줄씩 실행하는 형태 -->
+
+    <!-- 주의사항 -->
+    <!-- 자바스크립트는 오류 발생 시 오류가 발생한 시점 아래에 있는 소스코드를 실행하지 않음 -->
+    <!-- script태그 여러개 사용 중 오류 발생 시 오류 발생script태그 부분의 자바스크립트 코드가 실행이 중단되고 다른script태그 부분은 정상실행됨 -->
+</head>
+<body>
+    <h2>첫번쨰 자바스크립트 프로그래밍</h2>
+    <button type="button" onclick="document.getElementById('time').innerHTML = Date();">클릭 시 현재 시간 출력</button>
+    <p id="time"></p>
+    
+    <button onclick="alert('마우스로 클릭했슴다');">클릭하세요</button>
+    <button oncontextmenu="alert('마우스 오른쪽 클릭은 금지되어 있씁니다');">마우스 오른쪽 버튼으로 클릭</button>
+    <hr>
+
+    <p id="css">버튼 클릭 시 폰트크기가 변경될 글자</p>
+    <button onclick="document.getElementById('css').style.fontSize='35px'; ">클릭 시 css변경</button>
+    <button onclick="document.getElementById('css').style.display='none';">클릭 시 글자 숨김</button>
+    <button onclick="document.getElementById('css').style.display='block';">클릭 시 글자 보임</button>
+    <hr>
+
+    <img id="image" src="../html/images/002.jpg" alt="">
+    <button onclick="document.getElementById('image').src='../html/images/002.jpg';">클릭 시 002.jpg파일로드</button>
+    <button onclick="document.getElementById('image').src='../html/images/003.jpg';">클릭 시 003.jpg파일로드</button>
+    <script>
+        alert("body태그 가장 아래에 입력한 자바스크립트");
+    </script>
+</body>
+</html>

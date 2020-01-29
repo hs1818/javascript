@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        // 배열: 하나의 변수명으로 여러개의 데이터를 저장하는 방식의 데이터 타입
+            // []를 사용하며 각 데이터의 구분을 ,로 함
+            // 각 데이터에 접근할 경우 index번호를 사용하여 접근함
+            // index번호는 0부터 시작
+            var car="현대차"; //변수
+            var arrCar= ["현대자동차", "기아자동차", "쉐보레", "르노삼성", "쌍용자동차"]; //배열
+            console.log(car);
+            console.log(arrCar);
+
+            // 사용법
+                // 선언
+            var class1="601"; 
+            var class2="602";
+            var class3="603";
+            var class4="604";
+            var class5="605";
+            
+                // var 배열이름 = [값1,값2,값3,값4....]; //배열 선언과 동시에 데이터 입력하기
+            var arrClass = ["601","602","603","604","605"]
+
+                // var 배열이름 = []; //빈 배열 선언하기
+                // var 배열이름= new Array(); //빈 배열 선언하기
+                // var 배열이름; //배열이 아니라 변수로 선언( 빈 배열로 하려면 위에꺼)
+                var test; //빈 변수, 메모리 상의 변수를 선언만 했음
+
+                // 데이터 사용: 배열이름 [index번호] = 데이터; //배열의 지정한 index번호에 데이터를 저장, index번호가 반드시 필요
+                    // 배열이름[index번호]; 지정한 index 번호에 저장된 데이터를 출력
+                var arrClass = ["601","602","603","604","605"]
+                console.log(arrClass); //전체 출력
+                arrClass[0] = "701";
+                arrClass[1] = "702";
+                arrClass[2] = "703";
+                console.log(arrClass);    //개발 시 이렇게 하면 처리 안됨 /하나만 적으면안대고  이거능 그냥 빨간색이라 보여주기식 디버깅
+                console.log(arrClass[4]); //실제로 이렇게 해야 데이터 처리됨/ 5개 다적어야함 이거는 문자로 데이터고
+
+                //문3) 배열 1개 생성하고 데이터를 자신의 올해 버킷리스트 5개를 입력하여 화면에 출력하는 프로그램 생성
+                    // 배열이름: bucketList
+                    // 화면에 출력 시 각각의 인덱스 번호로 접근해서 출력
+                var bucketList = ["여행", "취업", "운동", "아픈거해결", "밤낮 바꾸기"];
+                console.log(bucketList[0]);
+                console.log(bucketList[1]);
+                console.log(bucketList[2]);
+                console.log(bucketList[3]);
+                console.log(bucketList[4]);
+                
+                // length:지정한 배열의 길이 출력
+                    // 주의사항- index번호는 0부터 length는 1부터 시작 
+                console.log(bucketList.length);
+
+                // 배열에서 많이 사용되는 함수
+                    // push(추가할 데이터): 해당 배열의 가장 마지막에 데이터를 추가
+                    var fruits = ["바나나", "사과", "오렌지", "포도"];
+                    console.log("원본 데이터");
+                    console.log(fruits);
+                    fruits.push("파인애플");
+                    fruits.push("배");
+                    console.log("push후 데이터");
+                    console.log(fruits);
+
+                    // pop(): 해당 배열의 가장 마지막에 데이터를 삭제
+                    console.log("원본 데이터");
+                    console.log(fruits);
+                    fruits.pop();
+                    console.log("pop후 데이터");
+                    console.log(fruits);
+
+                    // shift(): 해당 배열의 가장 앞에 있는 데이터를 삭제
+                    console.log("원본 데이터");
+                    console.log(fruits);
+                    fruits.shift();
+                    console.log("shift후 데이터");
+                    console.log(fruits);
+
+                    // unshift(추가할 데이터): 해당 배열의 가장 앞에 있는 데이터를 추가
+                    console.log("원본 데이터");
+                    console.log(fruits);
+                    fruits.unshift("앙");
+                    console.log("unshift후 데이터");
+                    console.log(fruits);
+
+                    // concat(): 기존의 배열에 다른 배열을 합하여 새배열을 생성
+                        // 기존의 배열은 그대로 있음
+                        // 사용법 - var새배열명 =기존배열1.concat(기존배역2);
+                        var cars = ["제네시스", "SM5", "포르쉐"];
+                        var comp = ["현대", "기아", "르노삼성", "쌍용", "쉐보레"];
+                        var carComp = cars.concat(comp);
+                        console.log(cars);
+                        console.log(comp);
+                        console.log(carComp);
+                
+                    // splice(): 배열의 지정한 위치에 데이터를 추가or삭제
+                        // 사용법- splice(index, 제거 요소 수, 추가할 데이터 1, 추가데이터2...) 
+                            // 지정한 위치에서 지정한 개수의 데이터를 삭제하고 지정한 데이터 추가
+                        console.log("원본 데이터");
+                        console.log(carComp);
+                        carComp.splice(3,3);
+                        console.log("splice로 데이터삭제");
+                        console.log(carComp);
+
+                        console.log("원본 데이터");
+                        console.log(carComp);
+                        carComp.splice(3, 0, "k3", "k5", "k7", "k9");
+                        console.log("splice로 데이터추가");
+                        console.log(carComp);
+
+                    // sort(): 배열 내부의 데이터를 오름차순으로 정렬
+                    // reverse(): 배열 내부의 데이터의 순서를 반대로 변경
+                    console.log("원본 데이터");
+                    console.log(carComp);
+                    carComp.sort();
+                    console.log("sort후 데이터 확인" );
+                    console.log(carComp);
+                    carComp.reverse();
+                    console.log("reverse후 데이터 확인" );
+                    console.log(carComp);
+
+                    // 문4) 올해 하고싶은 일 5가지 배열에 저장하고 화면에 출력 후 해당 배열에 좋아하는것 3가지 입력하고 화면에 출력해라
+                        // 기존의 배열에서 3가지 삭제하고 3개를 추가해
+                        // 방식은 2가지: 1. 배열의 끝이나 앞쪽에 데이터를 삭제하고 추가
+                        //              2. 지정한 위치의 데이터를 삭제하고 데이터를 추가
+                    var dos = ["여행", "취업", "운동", "아픈거해결", "밤낮 바꾸기"];
+                    console.log(dos);
+                    console.log(dos[0]);
+                    console.log(dos[1]);
+                    console.log(dos[2]);
+                    console.log(dos[3]);
+                    console.log(dos[4]);
+                    dos.pop();
+                    dos.unshift("자기");
+                    dos.splice(3, 2, "놀고", "먹고");
+                    console.log(dos);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

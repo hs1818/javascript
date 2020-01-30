@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>javasc3-1</title>
+
+    <script>
+        // 조건문: 프로그램 작성 시 조건에 따라서 프로그램의 흐름을 바꾸는 문장
+            // 조건에 따라서 실행하는 소스코드가 달라지는 것
+            // if. switch ~case 로 크게 2가지로 나누어짐
+
+            // if문: if, if ~ else, if ~ else if ~ else
+
+            // if: 가장 기본적인 조건문, 특정 조건을 확인하여 결과값이 논리적으로 true이면 아래코드 블럭의 내용을 실행하고, false이면 실행하지 않는 형태의 조건문
+                // 주로 옵션이 추가되는 형태의 코드를 작성할 때 사용함
+                /* if (조건문) {
+                    조건이 true일때 실행할 코드
+                }  */
+            var a = 10;
+            if (a > 5 )  {
+                console.log("변수a는 숫자 5보다 큽니뎅.");
+            }
+            console.log("변수a의 값은:" +a+ "입니다.");
+
+            var money = 10000;
+            var car = 1200;
+            var bab = 5000;
+
+            money = money - car;
+            if (money > 5000) {
+                console.log("군만두를 먹습다.");
+            }
+            console.log("볶음밥을 먹슴다");
+
+            // if ~else: 조건을 확인하여 프로그램의 실행방식을 변경할 때 주로 사용함
+                // 조건문의 결과가 true일 경우 바로 아래의 코드블럭을 실행, false일 경우 else문 아래의 코드블럭을 실행
+                // 무조건 둘 중의 하나를 실행하는 형태(true인지 false)
+                /* if(조건문) {
+                    조건문의 결과가 true일 경우 실행할 소스코드..
+                }
+                else {
+                    조건문의 결과가 false일 경우 실행할 소스코드...
+                }
+                */
+            var bumock =true;
+            if (bumock ==false) {
+                console.log("탕수육에 소스를 부어먹.");
+            }
+            else {
+                console.log("소스에 탕수육을 찍먹.");
+            }
+            
+            var weather = "비";
+            if (weather =="맑음") {
+                console.log("짜장면 묵");
+            }
+            else {
+                console.log("탕수육 묵");
+            }
+
+            
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

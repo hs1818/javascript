@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>java5</title>
+
+    <script>
+        // 반복문
+
+        // 배열과 반복문
+            // 배열의 모든 내용을 출력할 때 많이 사용함
+        var numbers = [1, 2,3, 4, 5];
+        console.log("기존 방식대로 배열의 모든 데이터 출력")
+        console.log(numbers[0]);
+        console.log(numbers[1]);
+        console.log(numbers[2]);
+        console.log(numbers[3]);
+        console.log(numbers[4]);
+
+        console.log("반복문을 사용하여 배열 모든데이터 출력")
+        for (var i = 0; i < numbers.length; i++) { //numbers.length - numbers길이 길면 모르니까 5(직접지정) 대신에 이거씀
+            console.log(numbers[i]);
+        }
+
+        console.log("length이용 시 오류가 적음 (유동적)")
+        numbers.push(6);
+        numbers.push(7);
+        numbers.push(8);
+        for (var i = 0; i < numbers.length; i++) {  // 직접지정한 건 5라고 값 지정해서 push값 안들어가지만(배열크기 변경 시 조건문 수정해야함)/ length -> 유동적이라 push먹힘(소스 수정필요x) 결론:length쓰기
+            console.log(numbers[i]);
+        }
+
+        // 문1) 데이터가 1~10까지 저장되어 있는 배열 arrNumbers를 선언하고 모든 index의 데이터를 합하여 화면에 출력하는 프로그램 작성
+            // for문 이용하여 출력
+        console.log("문1");
+        var arrNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        var result = 0; //배열 요소의 합을 저장할 변수  
+        //var 변수명; - 선언만 함/var 변수명 = [] -var 데이터타입 자동유추 / var 변수명 = 0; -> 산술에서는 숫자 없으면 계산 못해서 0;넣어줌
+        for ( var i =0; i < arrNumbers.length; i++) {
+            result = result + arrNumbers[i];
+            console.log(result);
+        }
+        
+        // 문2: 문1을 while문을 사용하여 작성
+        console.log("문2");
+        var arrNumbers = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+        var result= 0;
+        var i = 0;
+        while ( i < arrNumbers.length) {
+            result = result + arrNumbers[i];
+            i++;
+            console.log(result);
+        }
+        
+        // 문3) for문을 사용하여 배열에 원하는 단수의 구구단을 저장하고 화면에 출력하는 프로그램 작성
+            // 배열명: gugudan
+            // for문 2번 사용(입력시 1번, 출력시 1번)
+        console.log("문3");
+        var gugudan = []; 
+            // 첫번째 for문에서는 빈 배열에 원하는 단수의 구구단을 x * 1 ~ 9의 값을 저장
+        for (var i = 1; i < 10; i++) {
+            var result = 5*i
+            gugudan.push(result); //배열의 마지막에 값을 입력하는 함수 push입력해 데이터 입력
+        }
+            // 두번째 for문에서는 저장된 배열 gugudan의 각 요소를 출력
+        for ( var i= 0; i < 9; i++) {
+            console.log(gugudan[i]);
+        }
+        
+        // 문4) 문3을 while문으로 
+        console.log("문4");
+        var gugudan = [];
+        var i = 1;
+        while ( i < 10) {
+            var result= 5*i;
+            gugudan.push(result);
+            i++;
+        }
+        var i = 0; //while문에서 사용한 카운트변수 i는 위에 있는 while문에서 값이 10까지 증가되어 있음 
+                    // for문에서 선언되어지고 사용된 카운트변수는 for문이 종료되면 메모리에서 자동 삭제됨 -> while은 i = 0 이라고 해야함
+                    // while문은 카운트변수를 while문 외부에서 선언하고 내부에서 사용하기 때문에 while문이 종료되고 난 후에도 메모리에 남아있음
+                    // 이로 인해 이미 사용된 카운트 변수 다시 사용 시 마지막 사용했던 값이 그대로 남아있어서 카운트 변수 초기화하지 않을 시 정상적인 작동 보장x
+        while ( i < 9) {
+            console.log(gugudan[i]);
+            i++;
+        }
+        // 이중for문
+            // for문 내에 for문을 사용하는 방식
+            // 2중배열의 내용을 모두 출력할 때 많이 사용
+        for (var i =0; i <5; i++) {
+            for (var j =0; j<5; j++) {
+                console.log("i의 값:" + i + ", j의 값: " +j);
+            }
+        }
+
+        // 문5) 2중for문을 사용하여 구구단을 2단에서 9단까지 모두 출력
+        console.log("문5");
+        for ( var i =2; i < 10; i++) {
+            for (var j =1; j <10; j++) {
+                console.log(i + " * " + j + " = " + i*j);
+            }
+        }
+
+        // 문6) 문5를 2중while문 사용
+        console.log("문6");
+        var i =2;
+        while ( i < 10) {
+            var j = 1;  //기존에 등록된 카운트 변수 재선언
+            while (j < 10) {
+                console.log(i + " * " + j + " = " + i*j);
+                j++;
+            }
+            i++;
+        }
+
+        /* 센세답
+        var i =2;
+        var j = 1;
+        while ( i < 10) {
+            while (j < 10) {
+                console.log(i + " * " + j + " = " + i*j);
+                j++;
+            }
+            i++;
+            j = 1; //내부 while문의 카운트 변수 초기화
+        } 
+        */
+
+        // 2중배열과 2중반복문
+            // 배열의 모든 요소에 접근하는 가장 쉬운 방법은 반복문을 사용하는 것
+            // 2중배열의 요소에 모두 접근하려면 2중반복문을 쓰는것이 좋음
+        console.log("배열로 접근");
+        var arr2line = [
+            [1,2,3],
+            [4,5,6],
+            [7,8,9]
+        ];
+        console.log(arr2line[0][0]);
+        console.log(arr2line[0][1]);
+        console.log(arr2line[0][2]);
+        console.log(arr2line[1][0]);
+        console.log(arr2line[1][1]);
+        console.log(arr2line[1][2]);
+        console.log(arr2line[2][0]);
+        console.log(arr2line[2][1]);
+        console.log(arr2line[2][2]);  //너모 힘드니까 for문사용
+
+        // 반복문 이용하여 2중배열에 접근
+        console.log("반복문 2중배열");
+        for (var i =0; i<arr2line.length; i++) {
+            console.log(arr2line[i]);
+        }
+        // 2중 반복문 이용해 2중배열 접근
+        console.log("2중배열 2중반복문");
+        for (var i =0; i <arr2line.length; i++) {
+            for (var j = 0; j < arr2line[i].length; j++) {
+                console.log(arr2line[i][j]);
+            }
+        }
+
+        // break: 반복문 실행 시 break문을 만나면 해당 반복문을 즉시 중단
+        // contiune: 반복문 실행 시 coutiune문을 만나면 현재 루프를 중지하고 다음 루프로 이동
+        console.log("break");
+        for (var i =1; i < 10; i++) {
+            if (i ==5 ) {
+                break;
+            }
+            console.log("5 * " +i + " = " +5 *i);
+        }
+        console.log("continue");
+        for (var i =1; i < 10; i++) {
+            if (i ==5 ) {
+                continue;
+            }
+            console.log("5 * " +i + " = " +5 *i);
+        }
+
+        // 문7) 구구단을 2~9단까지 출력하는데 사용자의 입력을 받아서 해당 구구단만 출력하지 않고 나머지 구구단을 모두 출력하는 프로그램 작성
+        console.log("문7");
+        var dan = prompt("숫자를 입력하세요");
+        dan = Number(dan);
+        for (var i = 2; i <10; i++) {
+            if (i == dan) {
+                continue;
+            }
+            console.log(i+"단");
+            for (var j =1; j <10; j++) {
+                console.log( i+" * " +j + " = " +i*j);
+            }
+        }
+
+        // 문8) 구구단을 2~9단까지 출력하는데 사용자의 입력을 받아서 해당 구구단 이후로 모두 추력하지 않는 프로그램
+        console.log("문8----------------------");
+        var dan = prompt("숫자를 입력하세요");
+        dan = Number(dan);
+        for (var i = 2; i <10; i++) {
+            console.log(i+"단");
+            for (var j =1; j <10; j++) {
+                console.log( i+" * " +j + " = " +i*j);
+            }
+            if (i == dan) {
+                break;     //break를 사용하기 위한 if문의 위치에 따라서 프로그램이 조금 달라짐
+            }
+        }
+            
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

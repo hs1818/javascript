@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>javasc6-1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> //제이쿼리 사용가능</script> 
+    <script>
+        // 연습연습
+        function funcName(val1, val2) {
+            // 함수 호출 시 실행될 코드
+            console.log(val1 +val2);
+        }
+        funcName(100, 200); //함수 원형 모양에 맞게 만들기
+
+        // 1번
+        function cleaningStart() {
+            console.log("청소를 시작한다");
+        }
+        function cleaningEnd() {
+            console.log("청소를 종료한다");
+        }
+        function cleaning() {
+            console.log("청소 중이다");
+        }
+        cleaningStart();
+        cleaning();
+        cleaningEnd();
+
+        // 2번
+        function cs2(a,b) {
+            console.log(a+b);
+        }
+        cs2("물걸레로 ","청소를 시작한다");
+
+        // 4번
+        function cs4(a,b) {
+            return a+b;
+        }
+        result = cs4("물걸레로 ","청소를 시작한다");
+        console.log(result);
+
+        // 프로그램 크게 나눌 때(이거만 알아도 프로그램 만듬)
+            // 변수, 함수
+            // 데이터 타입(숫자, 문자, 논리, undefined)
+                // 배열, 객체
+            // 제어문(if~ else if), 반복문
+
+            // dom객체
+            // jquery
+                // 자바스크립트를 쉽게 사용하기 위한 라이브러리
+                // jquery파일을 다운받아 사용
+        $(document).ready(function() {
+            $("#hide").on("click", function() {  //function() -익명함수: 함수명이 없는 1회용 함수// on:이벤트 등록 <->off
+                $("h1").hide();    
+            });
+            $("#show").on("click", function() {
+                $("h1").show();    
+            });
+        }); //제이쿼리 사용 = $()
+    </script>
+    
+</head>
+<body>
+    <h1>아래 버튼 클릭 시 숨겨졌다가 보여지는 글자</h1>
+    <button id="hide">클릭시 글자 숨김</button>
+    <button id="show">클릭 시 글자 보임</button>
+</body>
+</html>

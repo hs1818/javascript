@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>java6</title>
+
+    <script>
+        // 함수
+            // 입력되는 데이터에 따라서 출력되는 결과를 다르게 할 수 있음 
+
+            // 함수의 형태 4가지
+                // 1. 매개변수와 반환값이 모두 없는 함수
+                    // 출력값이 항상 동일, 연산을 위한 변수가 모두 해당 함수 내에서 선언되고 사용됨
+                /* function aaa() {
+                    실행될 코드
+                    결과값 출력
+                }*/
+                function multi1() {
+                    var a = 10;
+                    var b = 20;
+                    console.log(a*b);
+                }
+                multi1();
+                // 문1) 사칙연산을 매개변수와 반환값이 없는 형태로 생성 후 호출하여 화면에 출력
+                console.log("문1------------")
+                function add1() {
+                    var a =10;
+                    var b =10;
+                    console.log(a+b);
+                }
+                function min1() {
+                    var a =10;
+                    var b =10;
+                    console.log(a-b);
+                }
+                add1();
+                min1();
+
+                // 2. 매개변수는 존재하고 반환값이 없는 함수
+                    // 매개변수로 인해 출력값이 변동, 연산을 위한 변수값을 외부에서 받아옴
+                /* function bbb(a, b, c) { a= 10, b =5, c =3X
+                    실행될 코드
+                    결과값 출력
+                } */
+                function multi2(a,b) { //함수 내부에 var a =10, var b= 20 선언과 동일한 효과
+                    console.log(a*b);
+                }
+                multi2(10,20);
+                // 문2) 사칙연산을 매개변수는 존재하고 반환값이 없는 형태로 함수를 생성하고 호출하여 화면에 출력
+                console.log("문2------------")
+                function add2(a,b) {
+                    var c = a+b;
+                    console.log(c);
+                }
+                function min2(a,b) {
+                    console.log(a-b);
+                }
+                add2(10,10);
+                min2(10,10);
+
+                // 3. 매개변수는 없고 반환값이 존재하는 함수 
+                    // 출력값은 항상 동일, 연산을 위한 변수가 모두 해당 함수 내에서 선언되고 사용됨, 결과값을 외부로 돌려주어 해당 결과값을 다른곳에서 사용할 수 있음
+                /* function ccc() { 
+                    실행될 코드
+                    return 결과값 출력
+                } */
+                function multi3() { 
+                    var a = 10;
+                    var b = 20;
+                    return a *b;    //해당 함수의 결과값을 함수를 호출한 시점으로 반환 (multi3으로 실행된 결과값이 들어감)
+                }                   // 해당 함수를 실행 후 결과값을 다른 곳에서 사용하기 위해 사용
+                var result = multi3(); //var result = 200;
+                console.log(result);
+                // 문3) 사칙연산을 매개변수는 없고 반환값이 존재하여 해당 반환값을 받아서 화면에 출력
+                console.log("문3------------")
+                function add3() {
+                    var a =10;
+                    var b =10;
+                    var c = a+b;
+                    return c;
+                }
+                function min3() {
+                    var a =10;
+                    var b =10;
+                    return a-b;
+                }
+                var result = add3(); 
+                console.log(result); // var 안쓰고 console.log(add3());만 사용- 변수에 반환값이 저장x == 1회용
+                result = min3();
+                console.log(result);
+                
+                //4. 매개변수로 인해 출력값이 변동, 결과값을 외부로 돌려주어 해당 결과값을 다른 곳에서 사용 가능
+                /* function ddd(a,b) { 
+                    실행될 코드... fuction
+                    return 결과값 출력
+                } */
+                function multi4(a,b) { //매개변수를 통해 데이터를 매번 다르게 입력받아 연산결과를 다르게 출력하고 그 결과를 해당 함수를 호출한 시점으로 반환하여 결과값을 다른소스에서 사용하도록 함
+                    return a*b;
+                }
+                result = multi4(10,20);
+                console.log(result);
+                // 문4) 사칙연산을 매개변수와 반환값이 모두 존재하는 형태로 함수를 생성하고 호출하여 화면에 출력
+                console.log("문4------------")
+                function add4(a,b) {
+                    var c = a+b;
+                    return c;
+                }
+                var result = add4(10,10);
+                console.log(result);
+                // console.log(add4(10,10));
+
+                // 문5) 사용자 입력통해서 점수를 입력받고 해당 점수의 등급을 출력하는 프로그램 작성
+                    // 각각의 등급을 구분하는 소스부분을 함수로 생성
+                    // 각각의 등급은 5점씩 나누어서 A+, A, B+, b, C+, C, D+, d, F로 출력
+                    // 100~96, 95~91, 89~86, 79~76, 75~79, 69~66, 65~60, 60미만
+                console.log("문5------------")
+                var score = prompt("숫자를 입력하셍");
+                score = Number(score);
+                var level;
+                function selectScore(score) {  //if안에 score작동하니까 이값 매개변수에 넣어줌
+                if (score >90) {
+                    if (score >95) {
+                        level = "A+";
+                        console.log("성적은" +score +"이고 등급은 A+");
+                    }
+                    else {
+                        level = "A";
+                        console.log("성적은" +score +"이고 등급은"+ level);
+                    }
+                }
+                else if (score > 80) {
+                    if (score > 85) {
+                        level= "B+"
+                        console.log("성적은" +score +"이고 등급은 B+");
+                    }
+                    else {
+                        level= "B"
+                        console.log("성적은" +score +"이고 등급은"+ level);
+                    }
+                }
+                else if (score > 70) {
+                    if (score > 75) {
+                        level= "C+"
+                        console.log("성적은" +score +"이고 등급은"+ level);
+                    }
+                    else {
+                        level= "C"
+                        console.log("성적은" +score +"이고 등급은"+ level);
+                    }
+                }
+                else if (score > 60) {
+                    if (score > 65) {
+                        level= "D+"
+                        console.log("성적은" +score +"이고 등급은"+ level);
+                    }
+                    else {
+                        level= "D"
+                        console.log("성적은" +score +"이고 등급은"+ level);
+                    }
+                }
+                else {
+                    level = "F";
+                    console.log("성적은" +score +"이고 등급은"+ level);
+                }
+                }
+                selectScore(score);
+                
+                // 전역변수: 프로그램 전체에서 접근, 사용 가능(프로그램 종료시 까지 살아있음)
+                // 지역변수: 특정 코드블럭 내에서 선언되고 사용(해당 코드블럭 이외에서는 접근이 안됨)
+                
+                // 문6) 사용자의 입력을 통해서 원하는 단수의 구구단을 출력하는 프로그램을 작성
+                    // 구구단 출력부분과 사용자 입력을 받는 부분을 따로따로 함수로 생성
+                        // 추가: 화면 출력부분을 함수로 따로 생성하여 출력
+                console.log("문6-----------")
+                function input() {
+                    var write = prompt("원하는 단수를 입력");
+                    write = Number(write);
+                    return write;
+                }
+                function output(write) {
+                    for (var i=1; i<10; i++) {
+                        console.log(write*i);
+                    }
+                }
+                var result = input();
+                output(result);  // output(input()); 이거만 해도되네
+                
+                // 문7) 화면 출력함수를 생성하여 사용자가 입력한 숫자만큼 화면에 '안녕하세요(카운트)' 를 출력하는 프로그램 작성
+                    // 카운트는 1부터 시작
+                console.log("문7-----------")        
+                function print(count) {
+                    for (var i=1; i<=count; i++) {
+                    console.log("안녕하세요 ("+i+")");
+                    }
+                }
+                var num =prompt("인사할 횟수를 입력")
+                num=Number(num);
+
+                print(num); //var count =num
+                
+                // 문8) 랜덤숫자를 사용하여 임의의 숫자6개를 받아서 배열에 입력하고 화면에 출력하는 프로그램 작성
+                console.log("문8-----------")
+                // var rnd =Math.floor(Math.random()* 3) +1;  //1~3까지 랜덤숫자 출력- 컴터
+                var lotto = [];
+                for (var i =0; i<6; i++) {
+                    var rnd =Math.floor(Math.random()* 45) +1;
+                    lotto.push(rnd);
+                }
+                for (var i=0; i <lotto.length; i++) {
+                    if (i == lotto.length - 1) {
+                        console.log("보너스 로또 숫자:" +lotto[i]);
+                    }
+                    else {
+                        console.log((i+1) + "번쨰 로또 숫자: " +lotto[i]); //i+1은 0으로 시작해서 1부터 로또번호 시작
+                    }
+                }
+                
+                // 문9) 8번을 함수를 사용해서 표현
+                console.log("문9-----------")
+                function createLotto() {
+                    for (var i =0; i<6; i++) {
+                    var rnd =Math.floor(Math.random()* 45) +1;
+                    lotto2.push(rnd);
+                }    
+                }
+                function printLotto() {
+                    for (var i=0; i <lotto2.length; i++) {
+                        if (i == lotto2.length - 1) {
+                            console.log("보너스 로또 숫자:" +lotto2[i]);
+                        }
+                        else {
+                            console.log((i+1) + "번쨰 로또 숫자: " +lotto2[i]); //i+1은 0으로 시작해서 1부터 로또번호 시작
+                        }
+                    }
+                }
+                var lotto2 = [];
+                createLotto();
+                printLotto();
+
+                // 문10) 문9를 이용해서 이번주 당첨번호를 생성 시 중복번호가 발생가능. 여기서 중복번호를 제거하는 프로그램 작성
+                console.log("문10-----------")
+                function creatLotto3() {
+                    for (var i =0; i<6; i++) {
+                    var rnd =Math.floor(Math.random()* 45) +1;
+                    //새로 생성된 임의의 숫자가 기존의 배열에 있는 숫자와 동일한 숫자인지 확인
+                        if (checkLotto3(rnd)== false) {  //기존의 배열에 저장된 숫자와 새로 생성된 숫자가 같지 않으면 저장
+                            lotto3.push(rnd);
+                        }
+                        else{
+                            i = i-1; //기존의 배열에 저장된 숫자와 새로 생성된 숫자가 같으면 카운트1감소
+                        }
+                    }
+                }
+                // 실제로 기존의 배열에 저장된 숫자와 새로 생성된 숫자가 같은지 확인   
+                    // 매개변수로 새로 생성된 임의의 숫자를 받음
+                function checkLotto3(rnd) {
+                    var result =false; //동일한 숫자가 있는지에 대한 상태값
+                    // 현재까지 저장된 배열의 크기만큼 반복
+                    for (var i = 0; i <lotto3.length; i++) { 
+                        // 임의의 숫자와 배열에 저장된 숫자를 비교
+                        if (rnd ==lotto3[i]) {
+                            result = true; //상태값을 true로 변경
+                            break; //반복문 중지
+                        }
+                    }
+                    return result;
+                }
+                function printLotto3() {
+                    for (var i=0; i <lotto3.length; i++) {
+                        if (i == lotto3.length - 1) {
+                            console.log("보너스 로또 숫자:" +lotto3[i]);
+                        }
+                        else {
+                            console.log((i+1) + "번쨰 로또 숫자: " +lotto3[i]); //i+1은 0으로 시작해서 1부터 로또번호 시작
+                        }
+                    }
+                }
+                var lotto3 = [];
+                creatLotto3();
+                printLotto3();
+
+                // 문11) 사용자 입력을 숫자로 받아서 그 숫자가 짝수인지 홀수인지 확인하여 화면에 출력하는 프로그램 작성
+                    // 함수사용(사용자 입력, 연산부분)
+                console.log("문11-----------")
+                function inputNumber() {
+                    var num = prompt("홀짝 구분");
+                    num = Number(num);
+                    return num;
+                }
+                // 입력된 숫자가 홀수인지 짝수인지 확인
+                function checkNumber(num) {
+                    if (num % 2==1) {
+                        outputNumber(num, "홀수");
+                    }
+                    else {
+                        outputNumber(num, "짝수");
+                    }
+                }
+                function outputNumber(number, text) {
+                    console.log(number+"은" + text + "입니다");
+                }
+                var number = inputNumber(); //사용자 입력 숫자
+                checkNumber(number);   //입력된 숫자 확인
+                
+    </script>   
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>javasc7-2</title>
+
+    <script>
+        // addEventListener <-> removeEventListener
+            // 자바스크립트에서 이벤트 등록 시 사용하는 함수
+            // 사용법
+                /* dom객체.addEventlistener("이벤트 종류", function() {
+                    이벤트 동작 시 실행할 자바스크립트 코드
+                }); 
+                */
+            // 참고: https://developer.mozilla.org/ko/docs/Web/API/EventTarget/addEventListener (mdn addeventlistener검색)
+            
+            window.addEventListener("DOMContentLoaded", function() {
+                var btn01 = document.querySelector("#btn01");
+                var btn02 = document.querySelector("#btn02");
+                
+                btn01.addEventListener("click", function() {
+                    alert("버튼 1번 클릭");
+                })
+                btn02.addEventListener("click", function() {
+                    alert("버튼 2번 클릭");
+                })
+                
+                var txt01 =document.querySelector("#txt01");
+                var txt02 =document.querySelector("#txt02");
+                var btn04 =document.querySelector("#btn04");
+
+                btn04.addEventListener("click", function(){
+                    var num1 = txt01.value;
+                    var num2 = txt02.value;
+
+                    num1 =Number(num1);
+                    num2 =Number(num2);
+                    
+                    alert(num1 +num2);
+                })
+
+                var inputNum1 = document.querySelector("#num1");
+                var inputNum2 = document.querySelector("#num2");
+                var inputResult = document.querySelector("#result");
+                var btnResult = document.querySelector("#btnResult");
+
+                btnResult.addEventListener("click", function() {
+                    var num1 = inputNum1.value;
+                    var num2 = inputNum2.value;
+
+                    num1 =Number(num1);
+                    num2 =Number(num2);
+
+                    inputResult.value = num1 + num2;
+                })
+            });
+
+        // removeEventListener
+            // 자바스크립트에서 등록된 이벤트 제거
+            // 사용법
+                // dom객체.removeEventlistener("이벤트 종류");
+                
+            // 참고: https://developer.mozilla.org/ko/docs/Web/API/EventTarget/removeEventListener
+
+        // 자바스크립트에서 이벤트 설정 시 html의 id를 사용하는 이유는 id값은 이벤트 설정 시 원하지 않는 태그에서 동작되는 것을 방지가능
+
+        
+    </script>
+</head>
+<body>
+    <button id="btn01">이벤트 1번버튼</button>
+    <button id="btn02" class="clsBtn02">이벤트 2번버튼</button>
+    <button id="btn03" class="clsBtn02">이벤트 3번버튼</button>
+    <hr><br>
+
+    <div>
+        <input type="text" id="txt01"><br>
+        <input type="text" id="txt02">
+        <button id="btn04">확인</button id="btn04">
+    </div>
+    <hr><br>
+    <div>
+        <input type="text" id="num1">+
+        <input type="text" id="num2">=
+        <input type="text" id="result">
+        <button id="btnResult">확인</button>
+    </div>
+</body>
+</html>

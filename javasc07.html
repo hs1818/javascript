@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>javasc7</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // 이벤트: 웹 브라우저나 사용자가 행하는 어떠한 동작
+            // 참고: https://developer.mozilla.org/ko/docs/Web/Events
+
+        // 이벤트 설정방식
+            // 1. inline방식 -html태그에 직접 설정
+            // 2. dom객체를 불러와서 사용
+                // head태그나 body태그 가장 아래에 자바스크립트 코드로 이벤트를 설정
+                // html dom객체를 이용해 지정한 html태그를 불러와서 이벤트를 설정
+            // 3. jquery를 이용해 dom객체를 불러와서 사용
+                
+
+        // 웹브라우저 동작 이벤트: 해당 페이지가 동작하는 것에 반응하는 이벤트
+            // load: 해당 페이지가 열렸을 때
+            // focus: 해당 html태그가 포커스가 주어졌을 경우
+            // blur: 해당 html태그에서 포커스가 다른 곳으로 이동했을 경우
+            // resize: 해당 페이지의 크기가 변경 되었을 경우
+            // scroll: 해당 페이지의 스크롤 위치가 변경 되었을 경우
+
+        // 마우스 이벤트: 마우스 동작 시 발생하는 이벤트
+            // click: 사용자가 마우스로 클릭 시 발생
+            // dblclick: 마우스로 더블클릭
+            // contextmenu: 사용자가 마우스 오른쪽 버튼 클릭 시 발생
+            // mousedown: 마우스로 클릭(마우스가 눌러지는 순간)시 발생
+            // mouseup: 사용자가 마우스로 클릭 후 발생(버튼을 눌렀다가 떼는 순간)
+            // mousemove: 마우스가 움직일때마다 발생
+            // mouseover: 마우스를 html요소 위에 올리면 발생
+            // mouseout: 마우스가 HTML요소 밖으로 벗어날 때 발생
+
+        // 키보드 이벤트: 키보드 동작 시 발생하는 이벤트
+            // keydown: 키를 누를 때 발생
+            // keyup: 키를 눌렀다 떼는 순간 발생
+            // keypress: 키를 누르는 순간 발생하고 키를 누르고 있는동안 계속 발생
+    </script>
+</head>
+<body>
+    <button onclick="alert('클릭햇슴둥');">클릭 했을 때 이벤트발생</button>
+    <div style="width: 200px; height: 200px; background: blueviolet;" onmouseover="alert('마우스 포인터가 올라갔음')" onmouseout="alert('마우스포인터가 div에서 나감');"></div>
+    <hr>
+
+    <div id="div01" style="width: 200px; height: 200px; background: blueviolet;">
+    </div>
+        <br>
+        <button id="btnHide">클릭시 div숨김</button>
+        <button id="btnShow">클릭시 숨긴div출력</button>
+        <hr>
+
+        <button id="btn01">클릭시 alert창 출력</button>
+        <div>
+            <img id="img01" src="../html/images/002.jpg" alt="">
+        </div>
+        <hr>
+
+        <h3>jquery를 이용한 이벤트설정</h3>
+        <button id="jqueryBtn01">jquery를 이용한 이벤트 설정</button>
+    <script>
+        //dom객체(html태그)를 이용해 id값 div01선택 후 자바스크립트 변수에 대입
+        var div01 = document.querySelector("#div01");  
+        var btnHide = document.querySelector("#btnHide"); //#btnHide를 선택 후 변수 btnhide에 대입
+        var btnShow = document.querySelector("#btnShow");
+        btnHide.onclick = function() { //function() -익명함수: 함수명이 없는 1회용 함수
+            div01.style.display = "none"; //div01 css속성 설정
+        }
+        btnShow.onclick = function() {
+            div01.style.display = "block";
+        }
+        
+        // 하나의 html태그에 여러 이벤트 설정
+        var btn01 = document.querySelector("#btn01");
+        var img01 = document.querySelector("#img01");
+        // 미리 생성한 함수를 이벤트에 등록이 가능
+        function add() {
+            a =10;
+            b= 20;
+            alert(a+b);
+        }
+        btn01.onmouseup = add; //함수이름만 적음
+        
+        btn01.onclick = function() {
+            alert("버튼 클릭");
+        }
+        img01.ondblclick = function() {
+            alert("이미지 클릭했다");
+        }
+        img01.oncontextmenu = function() {
+            alert("이미지를 오른쪽 버튼으로 클릭");
+        }
+        img01.onmouseover = function() {
+            alert('마우스 포인터가 이미지 위에 들어갔음');
+        }
+        img01.onmouseout = function() {
+            alert("마우스 포인터가 이미지 위에서 나감");
+        }
+        
+        // jquery: $() -> jquery사용
+        $("#jqueryBtn01").on("click",function() {
+            alert("jquery를 이용하여 클릭 이벤트설정");
+        });
+        $("#jqueryBtn01").on("contextmenu", function() {
+            alert("jquery 2번째 이벤트설정")
+        });
+
+        function mouseEvents() {
+            alert("jquery 3번쨰 이벤트 설정");
+        }
+        $("#jqueryBtn01").on("mouseout", mouseEvents);        
+        
+    </script>
+</body>
+</html>

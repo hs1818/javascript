@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>연습문제</title>
+    <script src="./jquery-3.4.1.js"></script>
+
+    <script>
+        $("document").ready(function() {
+            // 문1) a태그를 사용해 링크를 생성하고, 아래 버튼을 클릭 시 링크와 해당 링크 설명글을 모두 변경하는 프로그램을 작성
+            // 링크는 총3개
+            $("#div01btn1").on("click", function() {
+                $("#div01Link1").attr("href", "https://www.apple.com").text("애플홈페이지");
+            });
+
+            $("#div01btn2").on("click", function() {
+                $("#div01Link2").attr("href", "https://www.apple.com").text("애플홈페이지");
+            });
+
+            $("#div01btn3").on("click", function() {
+                $("#div01Link3").attr("href", "https://www.apple.com").html("애플홈페이지");
+            });
+
+        // 문2) a태그를 사용해 링크를 생성하고, 버튼을 클릭 시 해당 링크의 설명글을 모두 변경하는 프로그램 작성
+            // 각각의 링크 뒤에 input태그를 사용하여 링크 주소와 설명글을 입력
+            $("#div02btn1").on("click", function() {
+                var linkAddr = "http://";
+                linkAddr= linkAddr + $("#test2Input1").val();
+                var linkText = $("#test2Input2").val();
+               
+                $("#div02Link1").attr("href", linkAddr);
+                $("#div02Link1").text(linkText);
+            });    
+        });
+        
+    </script>
+</head>
+<body>
+    <div id="div01">
+        <p><a href="https://www.naver.com" id="div01Link1" target="_blank">네이버 홈페이지</a></p>
+        <p><a href="https://www.daum.net" id="div01Link2" target="_blank">다음 홈페이지</a></p>
+        <p><a href="https://www.goggle.com" id="div01Link3" target="_blank">구글 홈페이지</a></p>
+
+        <button id="div01btn1">링크1 + 설명글 변경 </button>
+        <button id="div01btn2">링크2 + 설명글 변경</button>
+        <button id="div01btn3">링크3 + 설명글 변경</button>
+    </div>
+    <hr><br>
+
+    <div id="div02">
+        <p><a href="https://www.naver.com" id="div02Link1" target="_blank">네이버 홈페이지</a>
+            <input type="text" value="" id="test2Input1">&nbsp
+            <input type="text" value="" id="test2Input2">
+            <button id="div02btn1">버튼 클릭 시 홈페이지 이름+링크 변경 </button></p>
+    </div>
+</body>
+</html>

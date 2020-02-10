@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jquery2-2</title>
+
+    <!-- jquery라이브러리 파일이 먼저 로딩해야 다른 파일에서 jquery문법을 사용할 수 있음 -->
+    <script src="./jquery-3.4.1.js"></script>
+    <script src="./js/jquery.color.plus-names-2.1.2.js"></script>
+
+    <script src="./js/jquery02-2.js"></script>
+</head>
+<body>
+    <div id="div01">
+        <p id="div01p1">원본 문자</p>
+        <button id="div01Btn1">클릭 시 prepend()동작, 글자에 추가</button>
+        <button id="div01Btn2">클릭 시 append()동작, 글자에 추가</button>
+
+        <br><br>
+        <ol id="div01ol1">
+            <li>리스트 아이템1</li>
+            <li>리스트 아이템2</li>
+            <li>리스트 아이템3</li>
+        </ol>
+        <button id="div01Btn3">클릭 시 prepend동작, 리스트에 추가</button>
+        <button id="div01Btn4">클릭 시 append동작, 리스트에 추가</button>
+        <hr><br>
+
+        <p id="div01p2">원본 문자</p>
+        <img id="div01img1" src="./images/002.jpg" alt="" style="width: 200px; height: 200px;"><br><br>
+        <button id="div01Btn5">클릭 시 after()동작</button>
+        <button id="div01Btn6">클릭 시 before()동작</button>
+    </div>
+    <hr><br>
+
+    <div id="div02">
+        <div id="div02div1" style="height: 200px; width: 400px; border: 1px solid black; background: coral;">
+            <h3>버튼 클릭 시 삭제될 h3태그</h3>
+            <p>버튼 클릭 시 삭제될 p태그 1</p>
+            <p>버튼 클릭 시 삭제될 p태그 2</p>
+        </div>
+        <button id="div02Btn1">클릭 시 remove()실행</button>
+        <hr><br>
+
+        <div id="div02div2" style="height: 200px; width: 400px; border: 1px solid black; background: coral;">
+            <h3>버튼 클릭 시 삭제될 h3태그</h3>
+            <p>버튼 클릭 시 삭제될 p태그 1</p>
+            <p>버튼 클릭 시 삭제될 p태그 2</p>
+        </div>
+        <button id="div02Btn2">클릭 시 empty()실행</button>     
+    </div>
+</body>
+</html>

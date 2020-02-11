@@ -52,11 +52,4 @@ $(document).ready(function() {
         text5 = outerWidthHeight(true, text5);
         $("#div01").html(text5);
     });
-
-    
-    
-    
-
-
-
 });

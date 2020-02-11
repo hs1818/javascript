@@ -1,0 +1,25 @@
+#div01 > div, #div02 > div, #div03 > div { width: 500px;}
+#div01 *, #div02 *, #div03 * {
+    display: block;
+    border: 3px solid gray;
+    color: gray;
+    padding: 10px;
+    margin: 20px;
+}
+
+#div04 > div, #div05 > div { width: 500px;}
+#div04 *, #div05 * {
+    display: block;
+    border: 3px solid grey;
+    color: grey;
+    padding: 10px;
+    margin: 20px;
+}
+
+#div06 *, #div07 *, #div08 *, #div09 *, #div10 *,#div11 *, #div12 * {
+    display: block;
+    border: 3px solid darkgray;
+    color: darkgray;
+    padding: 10px;
+    margin: 20px;
+}

@@ -1,0 +1,4 @@
+#div01 > div, #div02 > div {
+    border: 2px solid black;
+
+}

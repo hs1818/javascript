@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습</title>
+
+    <script src="./jquery-3.4.1.js"></script>
+    <script>
+        var text = "[정해진 수만큼 자동 반복]"
+        for (var i = 0; i< text.length; i++) {
+            console.log(text[i]);
+        };
+
+        console.log("-------------숫자1~10합")
+        var result =0;
+        for (var i =1; i<11; i++) {
+            result= result + i;
+            console.log(result);
+        };
+
+        console.log("-------------*표시")
+        var result=""; 
+        for (var i =0; i<5; i++) {
+            result += "*";   
+            console.log(result)
+        };
+
+        //값 ***** 위에꺼 살아있음
+        for (var i =5; i>0; i--) {
+            result= result.substr(0,i); //strsub( 문자열 시작 index-0, 5 몇개출력할건지)substr(start, length)
+            console.log(result);
+        };
+
+        console.log("-------------구구단 2~9단")
+        for (var i = 9; i>1; i--) {
+            for(var j=1; j<10; j++) {
+                console.log(i + "*"+ j +"="+ i*j);
+            }
+        }
+
+        console.log("-----------------01234 5 43210 2중for문, if")
+        var result ="";
+        for (var i = 0; i<6; i++) {
+                result = result+i;
+        }
+        for (var j =4; j>=0; j--) {
+            result = result+j;
+        }
+        console.log(result);
+
+        //두번째방법(센세)
+        for(var i =0; i<=5; i++) {
+            console.log(i);
+            if(i==5) {
+                for(var j=4; j>=0; j--) {
+                    console.log(j);
+                }
+            }   
+        }
+        
+        console.log("-----------------배열")
+        var text = ["배열", "하나의", "변수명으로", "여러개의", "데이터를", "저장하는", "자료구조"]
+        console.log(text[0]);
+        console.log(text[1]);
+        console.log(text[2]);
+        console.log(text[3]);
+        console.log(text[4]);
+        console.log(text[5]);
+        console.log(text[6]);
+        
+        text[0] = "국무위원은"
+        text[1] = "국정에"
+        text[2] = "관하여"
+        text[3] = "대통령을"
+        text[4] = "보좌하며"
+        text[5] = "국무회의의 구성원으로서"
+        text[6] = "국정을 심의한다."
+        console.log(text[0]);
+        console.log(text[1]);
+        console.log(text[2]);
+        console.log(text[3]);
+        console.log(text[4]);
+        console.log(text[5]);
+        console.log(text[6]);
+
+        console.log("-----------------for+배열")
+        var text = ["배열", "하나의", "변수명으로", "여러개의", "데이터를", "저장하는", "자료구조"]
+        for (var i =0; i<text.length; i++) {
+            console.log(text[i]);
+        };
+
+        console.log("-----------------2중배열")
+        var array = []; 
+        var ar1 = [1,2,3,4,5];
+        var ar2 = [6,7];
+        var ar3 = [11,12,13];
+        var ar4 = [16,17,18,19,20,21,22,23,24,25];
+        array[0] = ar1;
+        array[1] = ar2;
+        array.push(ar3);
+        array.unshift(ar4);
+        console.log(array);
+
+        for (var i =0; i<array.length; i++) {
+            console.log("배열 array의" + i + "번 index의 배열길이: "+array[i].length);
+        }
+
+        console.log("-----------------2중배열array 모든요소 접근")
+        for (var i =0; i<array.length; i++) {
+            for(var j =0; j<array[i].length; j++) {
+                console.log("배열 array [" +i+ "]["+j+"]의 값:"+array[i][j]);
+            }
+        }
+
+        console.log("-----------------table")
+        $(document).ready(function() {
+            var stars =[
+                ["1", "아이유", "가수", "여성"],
+                ["2", "원빈", "영화배우", "남성"],
+                ["3", "조이", "가수", "여성"],
+                ["4", "bts", "가수", "남성"],
+                ["5", "차승원", "영화배우", "남성"]
+            ];
+
+            var tt = "";
+            $("#btn1").on("click", function() {                
+                for (var i=0; i<stars.length; i++) {
+                    tt += "<tr>"
+                    for (var j=0; j<stars[i].length; j++) {
+                        tt = tt + "<td>";
+                        tt = tt + stars[i][j];
+                        tt = tt + "</td>";
+                    };
+                    tt =tt+"</tr>";
+                };
+                $("#table2 > tbody").html(tt);
+            });
+        });
+    </script>
+    <style>
+        td, th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table> 
+        <thead>
+            <tr>
+                <th>순번</th>
+                <th>이름</th>
+                <th>직업</th>
+                <th>성별</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>아이유</td>
+                <td>가수</td>
+                <td>여성</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>원빈</td>
+                <td>영화배우</td>
+                <td>남성</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>조이</td>
+                <td>가수</td>
+                <td>여성</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>bts</td>
+                <td>가수</td>
+                <td>남성</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>차승원</td>
+                <td>영화배우</td>
+                <td>남성</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr><br><br>
+
+
+    <table id="table2">
+        <thead>
+            <tr>
+                <th>순번</th>
+                <th>이름</th>
+                <th>직업</th>
+                <th>성별</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    <br>
+    <button id="btn1">클릭시 table내용 추가</button>
+</body>
+</html>

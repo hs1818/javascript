@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        "use strict" //엄격하게 문법 검사할 때 씀
+
+        //  object타입 {}: index x, key o, for문 사용x, for in문 사용
+            // for(변수 in object), object변수의 크기만큼 반복함, 변수에 key값 하나씩 집어넣음
+                /* for(변수 in object) {
+                    console.log(변수[i]) //key만 들어감
+                } */
+        var car = {name : "크루즈", color: "black", size: "big"};
+        console.log(car.name)
+
+        for(var i in car) {
+            console.log(car[i]);
+        }
+
+        console.log("------------------객체")
+        var ham = {name: "쉬림프포테이토버거", "1회제공량(g)": "280", "칼로리(kcal)": "680", "나트륨(mg)": "873(44)", "당류(g)": "12"};
+        console.log(ham);
+        console.log(ham.name);
+        var cheeze = {name: "딥치즈버거", "1회제공량(g)": "220", "칼로리(kcal)": "409", "나트륨(mg)": "737(37)", "당류(g)": "3"};
+        var masala = {name: "마살라 버거", "1회제공량(g)": "230", "칼로리(kcal)": "416", "나트륨(mg)": "588(29)", "당류(g)": "11"};
+
+        console.log("------------------배열에 넣기")
+        var array = [];
+        array.push(ham);
+        array.push(cheeze);
+        array.push(masala);
+        console.log(array);
+        
+        console.log("------------------for in사용")
+        for(var i in ham) {
+            console.log(ham[i]);
+        };
+        for(var i in cheeze) {
+            console.log(cheeze[i]);
+        }
+
+        console.log("------------------배열찾기")
+        for (var i =0; i<array.length; i++) {
+            for(var j in array[i]) {
+                console.log(array[i][j]);
+            }
+        }
+
+        console.log("------------------함수1번")
+        function hamsu () {
+            var car = {name : "크루즈", color: "black", size: "big"};
+            for (var i in car) {
+                console.log(car[i]);
+            };
+        };
+        hamsu();
+
+        console.log("------------------함수2번")
+        var cars = {name : "크루즈", color: "black", size: "big"};
+        function hamsu2 (ca) {
+            for (var i in ca) {
+                console.log(ca[i]);
+            };
+        };
+        hamsu2(cars);
+
+        console.log("----------------- 1~10합 함수로 만들어 실행")
+        function oneten() {
+            var sum = 0;
+            for (var i =1; i<11; i++) {
+                sum = sum+i
+                console.log(sum);
+            };
+        };
+        oneten();
+        
+        console.log("----------------- 구구단 함수로 만들어 실행")
+        function gugu() {
+            for (var i =1; i<10; i++) {
+                for (var j=1; j<10; j++) {
+                    console.log(i+"*"+j+"="+i*j);
+                };
+            };
+        };
+        gugu();
+        
+        console.log("----------------- 점수 입력시 학점 출력 만들어 실행")
+        var score = prompt("점수 입력");
+        score = Number(score);
+
+        function scsc(put) {
+            if (score >90) {
+                if(score >95) {
+                    console.log("점수는"+score+"이고 등급은 A+");
+                }
+                else {
+                    console.log("점수는"+score+"이고 등급은 A");
+                }
+            }
+            else if(score >80) {
+                if(score >85) {
+                    console.log("점수는"+score+"이고 등급은 B+");
+                }
+                else {
+                    console.log("점수는"+score+"이고 등급은 B");
+                }
+            }
+            else if(score >70) {
+                if(score >75) {
+                    console.log("점수는"+score+"이고 등급은 C+");
+                }
+                else {
+                    console.log("점수는"+score+"이고 등급은 C");
+                }
+            }
+            else if(score >60) {
+                if(score >65) {
+                    console.log("점수는"+score+"이고 등급은 D+");
+                }
+                else {
+                    console.log("점수는"+score+"이고 등급은 D");
+                }
+            }
+            else {
+                console.log("점수는"+score+"이고 등급은 F");
+            }
+        }
+        scsc(score);
+        
+        console.log("----------------- 사용자 입력 시 지정한 단수 출력")
+        var dansu = prompt("몇단을 출력할까요?");
+        dansu = Number(dansu);
+
+        function lala(h) {
+            for (var i =1; i<10; i++) {
+                console.log(h+"*"+i+"="+h*i);
+            };
+        };
+        lala(dansu);
+
+        console.log("----------------- 1~10합 함수로 만들어 실행 but 매개변수 2개 받아서 a~b의 합")
+        var hap = prompt("1~10 원하는 수의 합");
+        hap = Number(hap);
+        var hap1 = prompt("1~10 원하는 수의 합");
+        hap1 = Number(hap1);
+        
+        function aaa(x,y) {
+            var sum = 0;
+            for (var i = x; i<=y; i++) {
+                sum = sum+i;
+                console.log(sum);
+            }
+        }
+        aaa(hap,hap1);
+
+        console.log("----------------- 1~10합 함수로 만들어 실행 but 매개변수 2개 받아서 a~b의 합")
+        var hap = prompt("1~10 원하는 수의 합");
+        hap = Number(hap);
+    
+        function aaa(x,y) {
+            var sum = 0;
+            for (var i = x; i<=y; i++) {
+                sum = sum+i;
+                console.log(sum);
+            }
+        }
+        aaa(hap,5);
+    </script>
+    
+
+</head>
+<body>
+    
+</body>
+</html> 

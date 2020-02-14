@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        console.log("----------------- 점수 입력시 학점 출력 만들어 실행+ console.log함수로 만들기")
+        var score = prompt("점수 입력");
+        score = Number(score);
+
+        function scsc(put) {
+            var level;  //이거 안만들면 if put> 95 -> result(put, "A+"); else-> result(put. "A") 
+            if (put >90) {
+                if(put >95) {
+                    level = "A+";
+                }
+                else {
+                    level = "A";
+                }
+            }
+            else if(put >80) {
+                if(put >85) {
+                    level = "B+";
+                }
+                else {
+                    level = "B";
+                }
+            }
+            else if(put >70) {
+                if(put >75) {
+                    level = "C+";
+                }
+                else {
+                    level = "C";
+                }
+            }
+            else if(put >60) {
+                if(put >65) {
+                    level = "D+";
+                }
+                else {
+                    level = "D";
+                }
+            }
+            else {
+                level = "F";
+            }
+            result(put,level); //함수 1개는 1개의 기능
+        }
+
+        function result(put2, put3) {
+            console.log("점수는"+put2+"이고 등급은"+put3+"입니다");
+        }
+
+        scsc(score);
+        
+        console.log("----------------- 사용자 입력 구구단 입력받고+ 계산함수 2번형식 + 화면출력함수 따로 2번형식")
+        var write =prompt("원하는 구구단 단수는?");
+        write =Number(write);
+
+        function gugu(wr1) {
+            for(var i =1; i<10; i++) {
+                result1(wr1, i);
+            }
+        }
+        
+        function result1(rs1, rs2) {
+            console.log(rs1+"*"+rs2+"="+rs1*rs2)
+        }
+
+        gugu(write);
+        
+        console.log("-----------------점수3개를 입력받고 + 평균값 구하고 + 반환하는 함수+ 출력은 함수 밖에서(바로출력or 출력함수 사용) ")
+        function ppp () {
+            var score1= prompt("평균 구할값1");
+            score1 = Number(score1);
+            var score2= prompt("평균 구할값2");
+            score2 = Number(score2);
+            var score3= prompt("평균 구할값3");
+            score3 = Number(score3);
+
+            var div = (score1+ score2 + score3)/3;
+            return div;
+        }
+        console.log(ppp());
+
+        console.log("---------------------------------점수 3개 입력받고 평균내고 +4번형식으로 매개변수 3개 사용 반환 ->출력")
+        var sc1 =prompt("점수1");
+            sc1= Number(sc1);
+            var sc2 =prompt("점수2");
+            sc2= Number(sc2);
+            var sc3 =prompt("점수3");
+            sc3= Number(sc3);
+            
+        function asd(h1, h2, h3) {
+            var div = (h1+ h2+ h3)/3;
+            return div;
+        }
+        console.log(asd(sc1, sc2, sc3));
+
+        console.log("---------------------------------점수입력 등급출력 4번으로")
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
